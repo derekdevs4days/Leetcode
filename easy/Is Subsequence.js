@@ -23,16 +23,10 @@ s and t consist only of lowercase English letters.
  */
 
 function isSubsequence(s, t) {
-  let main = 0;
-  let other = 0;
-
-  while (main < s.length) {
-    if (other > t.length) return false;
-    if (s[main] === t[other]) {
-      main++;
-      other = main;
-    }
-    other++
+  let [left, right] = [0, 0];
+  while(right !== t.length) {
+    if (s[left] === t[right]) left ++;
+    right++;
   }
-  return true;
+  return left === s.length
 }
