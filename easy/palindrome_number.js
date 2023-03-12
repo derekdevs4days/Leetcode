@@ -72,30 +72,27 @@ var isPalindrome = function (x) {
 };
 
 /*
-algorithm:
-  - set up a guard clause that return false if a number is negative
-
-  - declare an "orginal" variable that is the original input
-  - declare "reverse" variable that will be used to assign reverse numbers
-
-  - while input is greater than zero
-    - grab the last number (reassign reverse to reverse * 10 + (input % 10))
-    - update input... input / 10 then floor that number. (this will remove the last number from input so we can grab the next last number)
-
-  - check if original is the same as reversed. return true or false
-
+Algorithm:
+ - declare a current variable and assign it to the input numeber
+ - declare a reversed variablke and set it to 0
+ 
+ - while the current number is greater than 0
+   - reversed is reassigned to (reversed * 10) + (current % 10) 
+   [(current % 10) grabs the last number from the current varable. We add this to (reversed * 10) which shifts the current number over 1 multiple. This is so that we can concatenate the last number of current to the reversed number.]
+   - current is reassasigned to Math.floor(current / 10)
+   [this REMOVES the last number of current so that the next iteration (current % 10) will grab the next last number.]
+ 
+ - return x === reversed
 */
 
 var isPalindrome = function (x) {
-  if (x < 0) return false;
-
-  const original = x;
+  let current = x;
   let reversed = 0;
-
-  while (x > 0) {
-    reversed *= 10 + (x % 10);
-    x = Math.floor(x / 10);
+  
+  while (current > 0) {
+     reversed = (reversed * 10) + (current % 10);
+     current = Math.floor(current / 10);
   }
-
-  return original === reversed;
+ 
+  return x === reversed;
 };
