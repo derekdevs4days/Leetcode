@@ -50,8 +50,6 @@ const mostFiles = function(input) {
     }
   }
 
-  console.log(dictionary)
-
   for (let bucket in dictionary) {
     if (dictionary[bucket].size > maxValue) maxValue = dictionary[bucket].size;
   }
