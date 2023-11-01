@@ -47,8 +47,7 @@ algorithm:
   - add compliment to hashmap
 */
 
-
-const twoSum = function(nums, target) {
+const twoSum = function (nums, target) {
   const hash = new Map();
 
   for (let i = 0; i < nums.length; i++) {
@@ -56,8 +55,8 @@ const twoSum = function(nums, target) {
     if (hash.has(compliment)) return [i, hash.get(compliment)];
     hash.set(nums[i], i);
   }
-}
+};
 
-console.log(twoSum([2,7,11,15], 9));
-console.log(twoSum([3,2,4], 6));
-console.log(twoSum([3,3], 6));
+console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum([3, 2, 4], 6));
+console.log(twoSum([3, 3], 6));

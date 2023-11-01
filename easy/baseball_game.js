@@ -80,24 +80,24 @@ Algorithm
 - reuturn sum of stac
 */
 
-var calPoints = function(operations) {
+var calPoints = function (operations) {
   const stack = [];
 
   for (let char of operations) {
-      if (!Number.isNaN(Number(char))) {
-          stack.push(Number(char));
-      } else if (char === '+') {
-          stack.push(stack[stack.length - 1] + stack[stack.length - 2]);
-      } else if (char === 'D') {
-          stack.push(stack[stack.length - 1] * 2);
-      } else if (char === 'C') {
-          stack.pop();
-      }
+    if (!Number.isNaN(Number(char))) {
+      stack.push(Number(char));
+    } else if (char === '+') {
+      stack.push(stack[stack.length - 1] + stack[stack.length - 2]);
+    } else if (char === 'D') {
+      stack.push(stack[stack.length - 1] * 2);
+    } else if (char === 'C') {
+      stack.pop();
+    }
   }
 
   return stack.reduce((a, c) => a + c, 0);
 };
 
-console.log(calPoints(["5","2","C","D","+"]) === 30);
-console.log(calPoints(["5","-2","4","C","D","9","+","+"]) === 27);
-console.log(calPoints(["1","C"]) === 0);
+console.log(calPoints(['5', '2', 'C', 'D', '+']) === 30);
+console.log(calPoints(['5', '-2', '4', 'C', 'D', '9', '+', '+']) === 27);
+console.log(calPoints(['1', 'C']) === 0);
